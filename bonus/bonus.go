@@ -8,5 +8,13 @@ package bonus
 
 func CalculateTowers(barLengths []int) (int, int) {
 	// Seu código aqui
-	return 0, 0
+	height := 1
+	quantidade := len(barLengths)
+	for i := 0; i < len(barLengths); i++ {
+		if barLengths[i] == barLengths[i+1] {
+			height++
+			quantidade--
+		}
+	}
+	return height, quantidade
 }

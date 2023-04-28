@@ -1,5 +1,7 @@
 package q3
 
+import "fmt"
+
 //Você recebe um tabuleiro retangular de M x N quadrados. Além disso, você tem um número ilimitado de peças de dominó
 //padrão de 2 x 1 quadrados. Você pode girar as peças. Você deve colocar o máximo de peças de dominó possível no
 //tabuleiro, seguindo as seguintes condições:
@@ -14,5 +16,20 @@ package q3
 
 func DominoPieces(m, n int) (int, error) {
 	// Seu código aqui
+	if m <= 0 && n <= 0 {
+		return 0, fmt.Errorf("Não é possível criar um tabuleiro com os valores inseridos.")
+	} else if m <= 0 && n > 0 {
+		return 0, fmt.Errorf("Não é possível criar um tabuleiro com os valores inseridos.")
+	} else if m > 0 && n <= 0 {
+		return 0, fmt.Errorf("Não é possível criar um tabuleiro com os valores inseridos.")
+	} else {
+		if (m*n)%2 != 0 {
+			want := ((m * n) - 1) / 2
+			return want, nil
+		} else {
+			want := (m * n) / 2
+			return want, nil
+		}
+	}
 	return 0, nil
 }
